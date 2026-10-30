@@ -4,6 +4,14 @@
     parent.postMessage(Object.assign({type:'pilot-status',state:state},extra || {}), location.origin);
   }
   C_MUSIC_TRACKS_BY_RACE = {0:[],1:[],2:[]};
+  var runtimeReady = false;
+  var pendingRead = false;
+  var runtimeInitialized = Module.onRuntimeInitialized;
+  Module.onRuntimeInitialized = function () {
+    runtimeReady = true;
+    if (runtimeInitialized) runtimeInitialized();
+    if (pendingRead) { pendingRead = false; on_read_all_done(); }
+  };
   // Use a separate cache from the local prototype to make the first-visit test meaningful.
   set_db_handle = function (success) {
     if (!window.indexedDB) { fetch_default_mpqs(); return; }
@@ -49,7 +57,10 @@
     }).catch(function(error){is_fetching_default_mpqs=false;notify('error',{message:error.message});show_loading_files_screen('Game data unavailable. Use Retry above the player.');});
   };
   var originalRead = on_read_all_done;
-  on_read_all_done = function(){notify('ready');originalRead();};
+  on_read_all_done = function(){
+    if (!runtimeReady) { pendingRead = true; return; }
+    notify('ready');originalRead();
+  };
   var originalStart = start_replay;
   start_replay = function(buffer,length){originalStart(buffer,length);notify('playing');};
   var originalFatal=js_fatal_error;

@@ -6,7 +6,7 @@
 - 固定提交：`bb4b9a3a89b7b1c189bbc3fcaafb5c33a8ca66e8`
 - OpenBW 引擎：https://github.com/OpenBW/openbw
 
-修改：将 CDN 依赖换成本地文件；加入 `replay-lab.js` 以支持用户导入 MPQ、浏览器缓存、宿主页状态同步；关闭远程音乐列表。保留原播放器的回放操作和界面。
+修改：将 CDN 脚本与字体换成本地文件；加入 `site/viewer/pilot-bridge.js` 以支持自动下载 MPQ、独立浏览器缓存、加载进度与宿主页状态同步；关闭远程音乐列表。保留原播放器的回放操作和界面。
 
 其他依赖：
 
