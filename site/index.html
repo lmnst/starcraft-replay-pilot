@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Replay Lab · One-match pilot</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="pilot.css">
+  <script src="pilot.js" defer></script>
+</head>
+<body>
+  <header><a class="brand" href="./">REPLAY LAB <span>PILOT</span></a><nav><button id="language">中文</button><a id="admin" href="https://app.pagescms.org/" target="_blank" rel="noopener">Manage replays ↗</a></nav></header>
+  <main>
+    <p class="eyebrow" id="eyebrow">STARCRAFT: BROOD WAR / ONLINE PLAYBACK TEST</p>
+    <h1 id="title">Loading match…</h1>
+    <p id="meta"></p>
+    <div class="loading-bar"><progress id="progress" max="100" aria-label="Game data loading progress"></progress><p id="status" role="status">Loading match information…</p><button id="retry" hidden>Retry</button></div>
+    <section id="screen"><iframe id="viewer" title="OpenBW replay player" allow="autoplay; fullscreen" allowfullscreen></iframe></section>
+    <footer><p id="help">Click inside the player. Space: pause · A / D: speed · Arrow keys: camera. The first visit downloads game data automatically.</p><p id="source">Pilot dependency: game data is loaded from the upstream viewer's public host. We do not redistribute MPQ files in this pilot.</p><a href="https://github.com/dgant/openbw-replay-viewer" target="_blank" rel="noopener">OpenBW Replay Viewer ↗</a><small id="revision"></small></footer>
+  </main>
+</body>
+</html>

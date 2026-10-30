@@ -1,0 +1,10 @@
+{
+  "id": "pilot-match",
+  "title_en": "Baseline vs reference-tier-d",
+  "title_zh": "Baseline 对阵 reference-tier-d",
+  "player1": "Baseline",
+  "player2": "reference-tier-d",
+  "map": "Heartbreak Ridge",
+  "replay": "/replays/heartbreak-v1.rep",
+  "visible": true
+}

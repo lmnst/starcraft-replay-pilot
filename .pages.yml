@@ -1,0 +1,52 @@
+media:
+  - name: replays
+    label: Replay files (.rep)
+    input: site/replays
+    output: /replays
+    extensions: [rep]
+    rename: random
+content:
+  - name: matches
+    label: Matches
+    type: collection
+    path: content/matches
+    format: json
+    filename: '{primary}.json'
+    fields:
+      - name: id
+        label: Permanent match ID
+        type: string
+        required: true
+      - name: title_en
+        label: English title
+        type: string
+        required: true
+      - name: title_zh
+        label: Chinese title
+        type: string
+        required: true
+      - name: player1
+        label: Player / bot 1
+        type: string
+        required: true
+      - name: player2
+        label: Player / bot 2
+        type: string
+        required: true
+      - name: map
+        label: Map
+        type: string
+        required: true
+      - name: replay
+        label: Replay file
+        type: file
+        required: true
+        options:
+          media: replays
+          extensions: [rep]
+      - name: visible
+        label: Show on website
+        type: boolean
+    view:
+      primary: title_en
+      fields: [title_en, map, visible]
