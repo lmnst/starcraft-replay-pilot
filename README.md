@@ -10,8 +10,8 @@ This repository tests a small workflow: Pages CMS edits a match and uploads a `.
 
 The viewer is derived from https://github.com/dgant/openbw-replay-viewer at commit `bb4b9a3a89b7b1c189bbc3fcaafb5c33a8ca66e8`. Third-party notices are in `THIRD_PARTY.md`. Do not infer a new licence for upstream code from this repository.
 
-## Resource limitation
+## Game data hosting
 
-This pilot uses the upstream player's public MPQ host, `https://dgant.github.io/mpqs`. The browser fetches around 90 MB on the first visit and can cache it. This repository does not distribute Blizzard MPQ archives. Availability and future permission to rely on that host are not guaranteed. Successful pilot playback does not settle production asset hosting or long-term reliability.
+The three MPQ archives from the owner's local project are stored in `site/game-data/` and served by this same GitHub Pages website. The player uses relative URLs and does not fall back to the upstream MPQ host. Visitors do not log in or select local files. Around 90 MB is downloaded on the first visit; subsequent visits can reuse the browser cache. A source-and-hash record is in `site/game-data/manifest.json`, and the build verifies all three files before publishing.
 
 CMS edits are not instantly live: wait for the `Validate and publish pilot` workflow. Only successful builds deploy. Replacing a replay with a new uploaded filename avoids stale replay caching; preserve the match `id` to keep its page link.

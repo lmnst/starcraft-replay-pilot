@@ -12,10 +12,10 @@
     if (runtimeInitialized) runtimeInitialized();
     if (pendingRead) { pendingRead = false; on_read_all_done(); }
   };
-  // Use a separate cache from the local prototype to make the first-visit test meaningful.
+  // Separate self-hosted resources from the earlier upstream-hosted cache.
   set_db_handle = function (success) {
     if (!window.indexedDB) { fetch_default_mpqs(); return; }
-    var request = indexedDB.open('ReplayLabPilot_DB',1);
+    var request = indexedDB.open('ReplayLabSelfHosted_DB_v1',1);
     request.onupgradeneeded = function (event) { event.target.result.createObjectStore('mpqs',{keyPath:'mpqkp'}); };
     request.onsuccess = success;
     request.onerror = function () { fetch_default_mpqs(); };
@@ -35,6 +35,7 @@
     Promise.all(C_DEFAULT_MPQ_SOURCES.map(function(url,index){
       return new Promise(function(resolve,reject){
         var req = new XMLHttpRequest();
+        console.info('Replay Lab game data:',url);
         req.open('GET',url,true);
         req.responseType = 'arraybuffer';
         req.timeout = 180000;

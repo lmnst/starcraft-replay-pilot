@@ -10,6 +10,12 @@ from datetime import datetime, timezone
 ROOT = Path(__file__).resolve().parents[1]
 SITE = ROOT / 'site'
 OUT = ROOT / 'dist'
+game_manifest = json.loads((SITE / 'game-data' / 'manifest.json').read_text(encoding='utf-8'))
+for name in ('StarDat.mpq', 'BrooDat.mpq', 'Patch_rt.mpq'):
+    archive = (SITE / 'game-data' / name).read_bytes()
+    expected = game_manifest['files'][name]
+    if archive[:4] != b'MPQ\x1a' or len(archive) != expected['bytes'] or hashlib.sha256(archive).hexdigest() != expected['sha256']:
+        raise ValueError(f'Game archive integrity check failed: {name}')
 records = []
 ids = set()
 for entry in sorted((ROOT / 'content' / 'matches').glob('*.json')):

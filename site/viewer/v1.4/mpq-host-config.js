@@ -1,1 +1,1 @@
-window.OPENBW_MPQ_BASE_URL = window.OPENBW_MPQ_BASE_URL || "https://dgant.github.io/mpqs";
+window.OPENBW_MPQ_BASE_URL = new URL('../game-data/', window.location.href).href;

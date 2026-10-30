@@ -3,3 +3,4 @@ __pycache__/
 evidence/
 *.mpq
 *.MPQ
+!site/game-data/*.mpq

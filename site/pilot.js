@@ -11,8 +11,8 @@ let lastMessage = '';
 let lastMB = 0;
 const startedAt = performance.now();
 const copy = {
-  en: {title:'Loading match…',eyebrow:'STARCRAFT: BROOD WAR / ONLINE PLAYBACK TEST',admin:'Manage replays ↗',help:'Click inside the player. Space: pause · A / D: speed · Arrow keys: camera. The first visit downloads game data automatically.',source:"Pilot dependency: game data is loaded from the upstream viewer’s public host. We do not redistribute MPQ files in this pilot.",loading:'Preparing playback…',download:'Downloading game data',ready:'Game data ready. Loading replay…',playing:'Replay loaded. Playback runs in your browser.',error:'Unable to load playback.',retry:'Retry',empty:'No published match.'},
-  zh: {title:'正在读取比赛…',eyebrow:'星际争霸：母巢之战 / 单场线上验证',admin:'管理回放 ↗',help:'先点击播放器。Space 暂停 · A / D 调整倍速 · 方向键移动镜头。首次访问将自动下载游戏数据。',source:'试验依赖：游戏数据来自上游播放器的公共资源地址。本试验不重新分发 MPQ 文件。',loading:'正在准备播放…',download:'正在下载游戏数据',ready:'游戏数据已就绪，正在读取回放…',playing:'回放已载入，在浏览器内播放。',error:'播放加载失败。',retry:'重试',empty:'暂无已发布的比赛。'}
+  en: {title:'Loading match…',eyebrow:'STARCRAFT: BROOD WAR / ONLINE PLAYBACK TEST',admin:'Manage replays ↗',help:'Click inside the player. Space: pause · A / D: speed · Arrow keys: camera. The first visit downloads game data automatically.',source:'Game data and replays are hosted by this website. No login or file import is needed.',loading:'Preparing playback…',download:'Downloading game data',ready:'Game data ready. Loading replay…',playing:'Replay loaded. Playback runs in your browser.',error:'Unable to load playback.',retry:'Retry',empty:'No published match.'},
+  zh: {title:'正在读取比赛…',eyebrow:'星际争霸：母巢之战 / 单场线上验证',admin:'管理回放 ↗',help:'先点击播放器。Space 暂停 · A / D 调整倍速 · 方向键移动镜头。首次访问将自动下载游戏数据。',source:'游戏数据与回放由本站统一提供，无需登录或手动导入。',loading:'正在准备播放…',download:'正在下载游戏数据',ready:'游戏数据已就绪，正在读取回放…',playing:'回放已载入，在浏览器内播放。',error:'播放加载失败。',retry:'重试',empty:'暂无已发布的比赛。'}
 };
 function render() {
   const c = copy[lang];
